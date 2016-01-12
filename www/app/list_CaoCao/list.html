@@ -1,0 +1,25 @@
+<ion-navbar *navbar>
+  <a menu-toggle>
+    <icon menu></icon>
+  </a>
+  <ion-title>Poemas de Cao Cao</ion-title>
+  <button fab-right outline (click)="bioCaoCao()" >Biografía</button>
+</ion-navbar>
+
+<ion-content>
+
+  <ion-list>
+    <ion-item *ng-for="#item of items" (click)="itemTapped($event, item)">
+      <icon name="{{item.icon}}" item-left></icon>
+      {{item.title}}
+      <div class="item-note" item-right>
+        {{item.note}}
+      </div>
+    </ion-item>
+  </ion-list>
+
+
+  <div *ng-if="selectedItem" padding>
+    Has llegado aquí desde <b>{{selectedItem.title}}</b>
+  </div>
+</ion-content>
